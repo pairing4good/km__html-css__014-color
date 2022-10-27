@@ -36,44 +36,23 @@ afterEach(async () => {
   await browser.close();
 });
 
-describe('the image with sized-pic id', () => {
-  it('should be 50px wide', async () => {
-    const width = await page.$eval('img[id="sized-pic"]', (img) => {
-      let style = window.getComputedStyle(img);
-      return style.getPropertyValue('width');
+describe('the rgb-color class ', () => {
+  it('should be set to the RGB equivalent of the color yellow', async () => {
+    const matches = await page.$eval('style', (style) => {
+      return style.innerHTML.match(/\.rgb-color.*{[\s\S][^}]*color.*:.*rgb\(255,.*255,.*0\).*;/g);
     });
     
-    expect(width).toEqual('50px');
-  });
-  
-  it('should be 50px tall', async () => {
-    const height = await page.$eval('img[id="sized-pic"]', (img) => {
-      let style = window.getComputedStyle(img);
-      return style.getPropertyValue('height');
-    });
-
-    expect(height).toEqual('60px');
+    expect(matches.length).toBe(1);
   });
 });
 
-describe('the image with rounded-pic id', () => {
-  it('should have rounded corners', async () => {
-    const borderRadius = await page.$eval('img[id="rounded-pic"]', (img) => {
-      let style = window.getComputedStyle(img);
-      return style.getPropertyValue('border-radius');
+describe('the hex-color class ', () => {
+  it('should be set to the HEX equivalent of the color yellow', async () => {
+    const matches = await page.$eval('style', (style) => {
+      return style.innerHTML.match(/\.hex-color.*{[\s\S][^}]*color.*:.*#ffff00.*;/g);
     });
     
-    expect(borderRadius).toEqual('15px');
+    expect(matches.length).toBe(1);
   });
 });
 
-describe('the image with circle-pic id', () => {
-  it('should be displayed as a complete circle', async () => {
-    const borderRadius = await page.$eval('img[id="circle-pic"]', (img) => {
-      let style = window.getComputedStyle(img);
-      return style.getPropertyValue('border-radius');
-    });
-    
-    expect(borderRadius).toEqual('50%');
-  });
-});

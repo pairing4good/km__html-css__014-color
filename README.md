@@ -1,9 +1,9 @@
 The `index.html` file
-- should style the `sized-pic` id with a 50px width and a 60px height
-- should style the `rounded-pic` id with rounded corners of 15px
-- should style the `circle-pic` so that it displays as a complete circle
+- should style the `rgb-color` class to the RGB equivalent of the color yellow
+- should style the `hex-color` class to the HEX equivalent of the color yellow
 
 Resources:
-- https://www.w3schools.com/cssref/pr_dim_width.asp
-- https://www.w3schools.com/cssref/pr_dim_height.asp
-- https://www.w3schools.com/cssref/css3_pr_border-radius.asp
+- https://www.w3schools.com/colors/default.asp
+
+Building toward CSTA Standards:
+- Translate between different bit representations of real-world phenomena, such as characters, numbers, and images. (3A-DA-09) https://www.csteachers.org/page/standards
